@@ -85,3 +85,8 @@ Error: browserType.launch: Executable doesn't exist at /Users/mac/Library/Caches
 **Result:** 220 passed (1.0m) before, 221 passed (1.1m) after, so no meaningful speedup.
 **Cause:** Sauce Demo's login is a fast client-side form, and each test still needs a full page load.
 **Lesson:** Measure before assuming an optimization helps. storageState pays off when login is slow (APIs, SSO, MFA). Here it mainly removes repeated login steps from the test bodies.
+
+## Phase 6: First CI run
+**Result:** Green on the first push, 46s total (tests 13s).
+**Annotations:** Node 20 deprecation warning for the actions, plus a notice that ubuntu-latest is migrating to Ubuntu 26.
+**Lesson:** A green first run doesn't mean the pipeline is trustworthy yet. I still need to prove it can fail and that I can debug a failure from the artifact alone.
