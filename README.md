@@ -2,8 +2,6 @@
 
 <img src="https://playwright.dev/img/playwright-logo.svg" alt="Playwright" width="140">
 
-![Playwright Tests](https://github.com/Rara212/saucedemo-playwright-tests/actions/workflows/playwright.yml/badge.svg)
-
 End-to-end UI tests for [Sauce Demo](https://www.saucedemo.com), written in
 TypeScript with Playwright, using page objects and fixtures, and run on every
 push through GitHub Actions.
