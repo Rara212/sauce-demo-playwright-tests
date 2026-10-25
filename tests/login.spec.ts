@@ -5,7 +5,7 @@ test.use({storageState: {cookies: [], origins: []}});
 test('standard user can login', async ({ loginPage, page }) => {
     await loginPage.goto();
     await loginPage.login('standard_user', 'secret_sauce');
-    await expect(page).toHaveURL(/checkout/);
+    await expect(page).toHaveURL(/inventory/);
 });
 
 test('locked out user sees an error', async ({loginPage}) => {

@@ -90,3 +90,9 @@ Error: browserType.launch: Executable doesn't exist at /Users/mac/Library/Caches
 **Result:** Green on the first push, 46s total (tests 13s).
 **Annotations:** Node 20 deprecation warning for the actions, plus a notice that ubuntu-latest is migrating to Ubuntu 26.
 **Lesson:** A green first run doesn't mean the pipeline is trustworthy yet. I still need to prove it can fail and that I can debug a failure from the artifact alone.
+
+## Phase 6: Debugging a deliberate CI failure
+**What I did:** Changed the login test's expected URL to /checkout/ and pushed.
+**Where the cause showed up:** The downloaded HTML report: Expected /checkout/, Received inventory.html, with the page snapshot showing the Products page.
+**What I saw:** CI retried the test twice (retries: 2), and the report included a trace from the first retry.
+**Lesson:** The Actions annotation only said "exit code 1". The step log and the report artifact had the actual cause, so uploading the report with `!cancelled()` matters.
